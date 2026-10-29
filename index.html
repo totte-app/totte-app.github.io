@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>TOTTE</title>
+<meta name="apple-mobile-web-app-title" content="TOTTE">
+<meta name="application-name" content="TOTTE">
+<meta name="theme-color" content="#1B2B48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<script>
+  // TOTTE の本体（Google のウェブアプリ）。住所が変わったら、ここだけ直す
+  var APP = 'https://script.google.com/macros/s/AKfycbyoHcVCfbjFE6zUFc4nkwzxgLYRIsQ7jcm2uZsuasluUgb1XxW6A0R1qw0f5Wp6BOBv/exec';
+  // ホーム画面から開いたとき（?open=1）は、すぐ TOTTE に移る
+  if (/[?&]open=1/.test(location.search)) location.replace(APP);
+</script>
+<style>
+  :root { --ink:#1B2B48; --sub:#3E4A5C; --acc:#2F6FB3; --tint:#E7F0FA; --line:#C3CBD8; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:#fff; color:var(--ink); font-family:-apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif; line-height:1.7; }
+  main { max-width:520px; margin:0 auto; padding:40px 20px 48px; }
+  .logo { display:flex; align-items:center; gap:14px; }
+  .logo img { width:64px; height:64px; border-radius:15px; }
+  .logo b { font-size:30px; letter-spacing:.06em; display:block; line-height:1.1; }
+  .logo span { font-size:15px; color:var(--sub); }
+  .go { display:flex; align-items:center; justify-content:center; margin:32px 0 10px; min-height:60px; border-radius:14px; background:var(--ink); color:#fff; font-size:20px; font-weight:700; text-decoration:none; }
+  .small { font-size:14px; color:var(--sub); }
+  h2 { font-size:18px; margin:36px 0 10px; }
+  .card { background:var(--tint); border-radius:14px; padding:16px 18px; }
+  .card + .card { margin-top:12px; }
+  .card b { display:block; }
+  ol { margin:6px 0 0; padding-left:1.3em; }
+  footer { margin-top:36px; padding-top:14px; border-top:1px solid var(--line); font-size:13px; color:var(--sub); }
+</style>
+</head>
+<body>
+<main>
+  <div class="logo"><img src="apple-touch-icon.png" alt=""><div><b>TOTTE</b><span>家族のからだの記録</span></div></div>
+  <a class="go" id="go" href="#">TOTTE を開く</a>
+  <p class="small">Google アカウントでの許可が必要です。家族から見られるようにしてもらってから開いてください。</p>
+
+  <h2>ホーム画面に置くと、次からはアイコンを押すだけ</h2>
+  <div class="card"><b>iPhone（Safari）</b>
+    <ol><li>このページを開いたまま、下の共有ボタン（四角から矢印）を押す</li><li>「ホーム画面に追加」を押す</li><li>右上の「追加」を押す</li></ol></div>
+  <div class="card"><b>Android（Chrome）</b>
+    <ol><li>このページを開いたまま、右上の「︙」を押す</li><li>「ホーム画面に追加」を押す</li></ol></div>
+  <p class="small" style="margin-top:12px">前に置いた「T」のアイコンは、長押しして消してください。</p>
+
+  <footer>このページは TOTTE の入口です。記録はこのページには入っていません。<br>記録して見せるための道具です。検査や治療ができるかどうかは、病院が判断します。</footer>
+</main>
+<script>
+  document.getElementById('go').href = APP;
+  // このページをホーム画面に追加したとき、次から開くとすぐ TOTTE に移るように、住所の後ろに印を付けておく
+  try { history.replaceState(null, '', location.pathname + '?open=1'); } catch (e) {}
+</script>
+</body>
+</html>
