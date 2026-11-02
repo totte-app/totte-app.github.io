@@ -1,0 +1,12 @@
+{
+  "name": "秘書",
+  "short_name": "秘書",
+  "start_url": "./?open=1",
+  "scope": "./",
+  "display": "browser",
+  "background_color": "#121a1f",
+  "theme_color": "#121a1f",
+  "icons": [
+    { "src": "apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>秘書</title>
+<meta name="apple-mobile-web-app-title" content="秘書">
+<meta name="application-name" content="秘書">
+<meta name="theme-color" content="#121a1f">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<script>
+  // 専属の秘書の本体（Google のウェブアプリ・竹内さんの Google アカウントでだけ開ける）。住所が変わったら、ここだけ直す
+  var APP = 'https://script.google.com/macros/s/AKfycbxMTMX-7II_T_U8G-QTDic0f_B5fh2bermOmkmhu1693EAnBv4E8i3fiAJknUt0yrH7KQ/exec';
+  // ホーム画面から開いたとき（?open=1）は、すぐ本体に移る
+  if (/[?&]open=1/.test(location.search)) location.replace(APP);
+</script>
+<style>
+  body { margin:0; min-height:100vh; background:radial-gradient(120% 90% at 30% 20%,#23343c 0%,#121a1f 70%); color:#dfe9e6; font-family:-apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif; line-height:1.7; }
+  main { max-width:480px; margin:0 auto; padding:48px 22px; text-align:center; }
+  img { width:128px; height:128px; border-radius:30px; box-shadow:0 0 30px #2bb59466; }
+  h1 { font-size:24px; margin:16px 0 0; letter-spacing:.08em; }
+  .go { display:block; margin:28px 0 14px; padding:16px; border-radius:14px; background:#2bb594; color:#fff; font-size:18px; font-weight:700; text-decoration:none; }
+  p { font-size:13px; color:#9fb3ad; text-align:left; }
+</style>
+</head>
+<body>
+<main>
+  <img src="apple-touch-icon.png" alt="">
+  <h1>秘書</h1>
+  <a class="go" id="go" href="#">開く</a>
+  <p>iPhone：Safari の共有ボタン →「ホーム画面に追加」→「追加」。次からはアイコンを押すだけで開きます。</p>
+</main>
+<script>
+  document.getElementById('go').href = APP;
+  try { history.replaceState(null, '', location.pathname + '?open=1'); } catch (e) {}
+</script>
+</body>
+</html>
